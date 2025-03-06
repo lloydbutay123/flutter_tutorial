@@ -15,37 +15,43 @@ class MyWidget extends StatelessWidget {
         backgroundColor: Colors.purple,
         titleTextStyle: TextStyle(color: Colors.white, fontSize: 20),
       ),
-      body: Container(
-        color: Colors.purple,
-        height: double.infinity,
-        width: double.infinity,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          crossAxisAlignment: CrossAxisAlignment.center,
+      body: Center(
+        child: Container(color: Colors.yellow, height: 100, width: 100),
+      ),
+      drawer: Drawer(
+        child: ListView(
+          padding: const EdgeInsets.all(0),
           children: <Widget>[
-            Container(
-              padding: EdgeInsets.all(10),
-              alignment: Alignment.center,
-              width: 100,
-              height: 100,
-              color: Colors.yellow,
+            UserAccountsDrawerHeader(
+              accountName: Text("John Lloyd Butay"),
+              accountEmail: Text("lloyd.butay@asianlink.ai"),
+              currentAccountPicture: CircleAvatar(
+                backgroundImage: NetworkImage(
+                  "https://plus.unsplash.com/premium_photo-1738590017220-5820f49608cc?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Z3V5JTIwaWNvbnxlbnwwfHwwfHx8MA%3D%3D",
+                ),
+              ),
             ),
-            Container(
-              padding: EdgeInsets.all(10),
-              alignment: Alignment.center,
-              width: 100,
-              height: 100,
-              color: Colors.blue,
+            ListTile(
+              leading: Icon(Icons.person),
+              title: Text('John Lloyd Butay'),
+              subtitle: Text("Full stack Developer"),
+              trailing: Icon(Icons.edit),
+              onTap: () {},
             ),
-            Container(
-              padding: EdgeInsets.all(10),
-              alignment: Alignment.center,
-              width: 100,
-              height: 100,
-              color: Colors.red,
+            ListTile(
+              leading: Icon(Icons.email),
+              title: Text('Email'),
+              subtitle: Text("lloyd.butay@asianlink.ai"),
+              trailing: Icon(Icons.edit),
+              onTap: () {},
             ),
           ],
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        backgroundColor: Colors.purple,
+        child: Icon(Icons.edit, color: Colors.white),
       ),
     );
   }
