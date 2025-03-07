@@ -1,5 +1,6 @@
 import "package:flutter/material.dart";
 import "package:flutter_application_2/pages/home_page.dart";
+import "package:flutter_application_2/utils/constants.dart";
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -69,7 +70,11 @@ class _LoginPageState extends State<LoginPage> {
                               foregroundColor: Colors.white,
                             ),
                             onPressed: () {
-                              Navigator.pushNamed(context, HomePage.routeName);
+                              Constants.prefs.setBool("loggedIn", true);
+                              Navigator.pushReplacementNamed(
+                                context,
+                                HomePage.routeName,
+                              );
                             },
                             child: Text("Sign in"),
                           ),
