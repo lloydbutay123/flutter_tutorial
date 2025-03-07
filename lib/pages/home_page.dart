@@ -7,6 +7,8 @@ import 'package:http/http.dart' as http;
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
+  static const String routeName = "/home";
+
   @override
   State<HomePage> createState() => _HomePageState();
 }
@@ -44,6 +46,14 @@ class _HomePageState extends State<HomePage> {
         title: Text("Awesome App"),
         backgroundColor: Colors.purple,
         titleTextStyle: TextStyle(color: Colors.white, fontSize: 20),
+        actions: [
+          IconButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: Icon(Icons.exit_to_app),
+          ),
+        ],
       ),
       body:
           data == null
